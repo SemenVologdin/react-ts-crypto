@@ -4,12 +4,6 @@ import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
-import Select from '@material-ui/core/Select';
-import MenuItem from '@material-ui/core/MenuItem';
-import TextField from '@material-ui/core/TextField';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormControl from '@material-ui/core/FormControl';
-import Typography from '@material-ui/core/Typography';
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
@@ -20,27 +14,15 @@ import TableRow from '@material-ui/core/TableRow';
 const useStyles = makeStyles((theme: Theme) =>
   createStyles({
     root: {
-      padding: theme.spacing(10),
+      margin: 'auto',
     },
     paper: {
-      padding: theme.spacing(2),
-      textAlign: 'center',
-      color: theme.palette.text.secondary,
-    },
-    cryptoInputBox: {
-      display: 'flex',
-      alignItems: 'space-between',
-      marginBottom: '20px',
-    },
-    currencyInput: {
-      minWidth: '70%',
-      marginRight: '10px',
-    },
-    currencyType: {
-      minWidth: '30%',
+      // padding: theme.spacing(2),
+      // textAlign: 'center',
+      // color: theme.palette.text.secondary,
     },
     table: {
-      minWidth: 650,
+      // minWidth: 650,
     },
     currencyIcon: {
       width: 20,
@@ -48,10 +30,6 @@ const useStyles = makeStyles((theme: Theme) =>
     },
   }),
 );
-
-function createData(name: string, calories: number, fat: number, carbs: number, protein: number) {
-  return { name, calories, fat, carbs, protein };
-}
 
 type TCoin = {
   name: string;
@@ -84,9 +62,11 @@ function App() {
   }, [classes]);
 
   return (
-    <Container maxWidth="lg" className={classes.root}>
-      <Grid container spacing={3}>
+    <Container>
+      <Grid container className={classes.root}>
         <Grid item xs={8}>
+          <h1>Сryptocurrency table</h1>
+
           <TableContainer component={Paper}>
             <Table className={classes.table} size="small" aria-label="a dense table">
               <TableHead>
@@ -113,35 +93,6 @@ function App() {
               </TableBody>
             </Table>
           </TableContainer>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>
-            <div className={classes.cryptoInputBox}>
-              <TextField className={classes.currencyInput} fullWidth label="Сумма" />
-              <FormControl className={classes.currencyType}>
-                <InputLabel shrink>Валюта</InputLabel>
-                <Select value={10}>
-                  <MenuItem value={10}>123</MenuItem>
-                  <MenuItem value={20}>23232</MenuItem>
-                  <MenuItem value={30}>33232</MenuItem>
-                </Select>
-              </FormControl>
-            </div>
-            <div className={classes.cryptoInputBox}>
-              <TextField className={classes.currencyInput} fullWidth label="Сумма" />
-              <FormControl className={classes.currencyType}>
-                <InputLabel shrink>Валюта</InputLabel>
-                <Select value={10}>
-                  <MenuItem value={10}>123</MenuItem>
-                  <MenuItem value={20}>23232</MenuItem>
-                  <MenuItem value={30}>33232</MenuItem>
-                </Select>
-              </FormControl>
-            </div>
-            <Typography variant="h5" component="h5">
-              77 рублей
-            </Typography>
-          </Paper>
         </Grid>
       </Grid>
     </Container>
